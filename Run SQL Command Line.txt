@@ -1,0 +1,130 @@
+
+SQL*Plus: Release 10.2.0.1.0 - Production on Wed Jul 10 23:00:53 2024
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+SQL> conn
+Enter user-name: student_record
+Enter password:
+Connected.
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+STUDENTS                       TABLE
+COURSES                        TABLE
+ENROLLMENTS                    TABLE
+
+SQL> desc students;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENT_ID                                NOT NULL NUMBER(38)
+ FIRST_NAME                                         VARCHAR2(20)
+ LAST_NAME                                          VARCHAR2(10)
+ DATE_OF_BIRTH                                      DATE
+ EMAIL                                              VARCHAR2(20)
+
+SQL> select * from students;
+
+STUDENT_ID FIRST_NAME           LAST_NAME  DATE_OF_B EMAIL
+---------- -------------------- ---------- --------- --------------------
+       101 john                 doe        01-JAN-02 john.new@gmail.com
+       105 priya                kumari     12-DEC-02 priya@gmail.com
+       203 Atul                 Kumar      01-JUN-00 atul@gmail.com
+       703 Vishal               Prakash    17-DEC-04 vishal@gmail.com
+       208 Ujwal                Prakash    01-JAN-00 ujwal@gamil.com
+       345 Udipta               Kumari     23-OCT-05 udipta@gmail.com
+       879 kaustuv              Pathak     19-OCT-01 kaustuv@gmail.com
+       980 SUPPER               SINGH      08-JAN-04 supper@gmail.com
+       343 Cherry               Cranmer    12-FEB-05 cranmerx@gmail.com
+       414 Carlita              plant      23-NOV-01 cplant@gmail.com
+       535 Connie               Manoch     23-MAR-99 cmanoch@gmail.com
+
+STUDENT_ID FIRST_NAME           LAST_NAME  DATE_OF_B EMAIL
+---------- -------------------- ---------- --------- --------------------
+       666 Caria                Mattielli  19-JUN-08 cmattielli@gmail.com
+       727 Carroll              Berre      25-JAN-02 cberre@gmail.com
+       777 Chrisabela           Courage    23-JUL-92 ccourage@gmail.com
+       787 Chan                 Bysaker    18-APR-89 cbysaker@gmail.com
+       198 Arsh                 Iyan       12-DEC-03 arsh@gmail.com
+       892 Jamshed              Ahmad      27-SEP-00 jahmad@gmail.com
+       172 Afzal                Mallick    15-AUG-10 afzal@gmail.com
+
+18 rows selected.
+
+SQL> desc courses;;
+SP2-0565: Illegal identifier.
+SQL> desc courses;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ COURSE_ID                                 NOT NULL NUMBER(5)
+ COURSE_NAME                                        VARCHAR2(10)
+ COURSE_DESCRIPTION                                 VARCHAR2(10)
+ CREDITS                                            NUMBER(15)
+
+SQL> select * from courses;
+
+ COURSE_ID COURSE_NAM COURSE_DES    CREDITS
+---------- ---------- ---------- ----------
+      5005 BTech      Technology          4
+      3658 AGDCA      Anatomy             6
+      1488 dca        computer            3
+      1486 adca       computer            2
+      5432 ddtp       educations          7
+      1252 o level    base unix           5
+      2465 cpp        advanced            3
+      9876 Eng        English             5
+      9603 Python     Adv Py              9
+      5823 Java       Base Java           2
+      8125 CPP        Fundament           1
+
+ COURSE_ID COURSE_NAM COURSE_DES    CREDITS
+---------- ---------- ---------- ----------
+      6432 C          Software            6
+      3275 ADCA       Hardware            8
+      2817 Python     Basic Py            3
+      9090 Java       Adv Java            8
+      7483 DCA        Computer            2
+      3321 DSA        Technicsl           8
+      5253 Bio        Biology             4
+      3525 Zoo        Zology              7
+
+19 rows selected.
+
+SQL> desc enrollments;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ENROLLMENT_ID                             NOT NULL NUMBER(15)
+ STUDENT_ID                                         NUMBER(10)
+ COURSE_ID                                          NUMBER(10)
+ GRADE                                              VARCHAR2(5)
+
+SQL> select * from enrollments;
+
+ENROLLMENT_ID STUDENT_ID  COURSE_ID GRADE
+------------- ---------- ---------- -----
+         4560        101       5005 A
+         1258        105       3658 B
+         2356        203       1488 C
+         8465        703       1486 A
+         1978        208       5432 E
+         1946        345       1252 C
+         1292        879       2465 B
+         2853        980       9876 D
+         6438        343       9603 A+
+         2756        414       5823 B
+         6721        535       8125 A
+
+ENROLLMENT_ID STUDENT_ID  COURSE_ID GRADE
+------------- ---------- ---------- -----
+         2673        666       6432 E
+         5263        727       3275 F
+         6142        777       2817 B-
+         3635        787       7483 A+
+         4233        198       3321 A-
+         3412        892       5253 D
+         1374        172       3525 E
+
+18 rows selected.
+
+SQL>
